@@ -29,7 +29,7 @@
     }
 
     h2 {
-      font-size: 22px;
+      font-size: 20px;
       margin-bottom: 20px;
       color: #1f3b63;
     }
@@ -53,9 +53,10 @@
     }
 
     .result {
-      font-size: 20px;
+      font-size: 22px;
       margin-top: 20px;
       color: #1f3b63;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -65,12 +66,12 @@
 <div class="card">
 
   <div id="quiz">
-    <h2>Kaip tau lengviausia mokytis kalbų?</h2>
+    <h2>Kaip tu geriausiai mokaisi naujų dalykų?</h2>
 
-    <button onclick="answer('structure')">Per taisykles ir struktūrą</button>
-    <button onclick="answer('communication')">Kalbant su žmonėmis</button>
-    <button onclick="answer('immersion')">Per filmus ir muziką</button>
-    <button onclick="answer('repetition')">Per kartojimą</button>
+    <button onclick="answer('structure')">Su taisyklėmis ir paaiškinimais</button>
+    <button onclick="answer('communication')">Praktikuojantis / darant užduotis</button>
+    <button onclick="answer('immersion')">Klausant / žiūrint</button>
+    <button onclick="answer('repetition')">Daug kartų kartojant</button>
   </div>
 
   <div id="result" class="result" style="display:none;"></div>
@@ -98,10 +99,10 @@
 
     let text = "";
 
-    if (maxType === "structure") text = "Tavo mokymosi tipas: STRUKTŪRINIS";
-    if (maxType === "communication") text = "Tavo mokymosi tipas: KOMUNIKACINIS";
-    if (maxType === "immersion") text = "Tavo mokymosi tipas: IMERSIJOS";
-    if (maxType === "repetition") text = "Tavo mokymosi tipas: KARTOJIMO";
+    if (maxType === "structure") text = "Tavo tipas: STRUKTŪRINIS";
+    if (maxType === "communication") text = "Tavo tipas: KOMUNIKACINIS";
+    if (maxType === "immersion") text = "Tavo tipas: IMERSIJOS";
+    if (maxType === "repetition") text = "Tavo tipas: KARTOJIMO";
 
     document.getElementById("quiz").style.display = "none";
     document.getElementById("result").style.display = "block";
