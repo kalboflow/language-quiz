@@ -66,12 +66,11 @@
 <div class="card">
 
   <div id="quiz">
-    <h2>Kaip tu geriausiai mokaisi naujų dalykų?</h2>
 
-    <button onclick="answer('structure')">Su taisyklėmis ir paaiškinimais</button>
-    <button onclick="answer('communication')">Praktikuojantis / darant užduotis</button>
-    <button onclick="answer('immersion')">Klausant / žiūrint</button>
-    <button onclick="answer('repetition')">Daug kartų kartojant</button>
+    <h2 id="question">Kaip tu geriausiai mokaisi naujų dalykų?</h2>
+
+    <div id="answers"></div>
+
   </div>
 
   <div id="result" class="result" style="display:none;"></div>
@@ -86,10 +85,52 @@
     repetition: 0
   };
 
+  let currentQuestion = 0;
+
+  const questions = [
+    {
+      q: "Kaip tu geriausiai mokaisi naujų dalykų?",
+      a: [
+        { text: "Su taisyklėmis ir paaiškinimais", type: "structure" },
+        { text: "Praktikuojantis / darant užduotis", type: "communication" },
+        { text: "Klausant / žiūrint", type: "immersion" },
+        { text: "Daug kartų kartojant", type: "repetition" }
+      ]
+    },
+    {
+      q: "Koks tavo tikslas mokantis kalbų?",
+      a: [
+        { text: "Karjera / geresnis darbas ateityje", type: "structure" },
+        { text: "Susikalbėti su žmonėmis kelionių metu", type: "communication" },
+        { text: "Suprasti filmus, knygas, turinį", type: "immersion" },
+        { text: "Tobulėti kaip žmogus", type: "repetition" }
+      ]
+    }
+  ];
+
+  function loadQuestion() {
+    let q = questions[currentQuestion];
+
+    document.getElementById("question").innerText = q.q;
+
+    let html = "";
+
+    q.a.forEach(ans => {
+      html += `<button onclick="answer('${ans.type}')">${ans.text}</button>`;
+    });
+
+    document.getElementById("answers").innerHTML = html;
+  }
+
   function answer(type) {
     score[type]++;
+    currentQuestion++;
 
-    showResult();
+    if (currentQuestion < questions.length) {
+      loadQuestion();
+    } else {
+      showResult();
+    }
   }
 
   function showResult() {
@@ -108,6 +149,8 @@
     document.getElementById("result").style.display = "block";
     document.getElementById("result").innerText = text;
   }
+
+  loadQuestion();
 </script>
 
 </body>
