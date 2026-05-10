@@ -354,13 +354,34 @@ Tinka: flashcards, žodžių kartojimas, frazių mokymasis ir trumpi kasdieniai 
 }
 
 /* CONFETTI */
-for(let i=0;i<220;i++){
+for(let i=0;i<200;i++){
+
 let c=document.createElement("div");
 c.classList.add("confetti");
-c.style.left=Math.random()*100+"vw";
-c.style.background=["#3b82f6","#60a5fa","#93c5fd","#bfdbfe"][Math.random()*4|0];
+
+/* random start position */
+c.style.left = Math.random()*100 + "vw";
+
+/* start height */
+c.style.top = (-20 + Math.random()*-80) + "px";
+
+/* size */
+let size = 6 + Math.random()*6;
+c.style.width = size + "px";
+c.style.height = size + "px";
+
+/* colors */
+c.style.background = ["#3b82f6","#60a5fa","#93c5fd","#bfdbfe"][Math.floor(Math.random()*4)];
+
+/* speed */
+c.style.animationDuration = (2 + Math.random()*2) + "s";
+
+/* drift */
+c.style.transform = `translateX(${(Math.random()*200)-100}px)`;
+
 document.body.appendChild(c);
-setTimeout(()=>c.remove(),3000);
+
+setTimeout(()=>c.remove(),4000);
 }
 
 document.getElementById("quiz").style.display="none";
