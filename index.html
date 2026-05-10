@@ -34,6 +34,12 @@
       color: #1f3b63;
     }
 
+    .qnum {
+      font-size: 14px;
+      color: #6b86a8;
+      margin-bottom: 10px;
+    }
+
     button {
       width: 100%;
       padding: 14px;
@@ -67,6 +73,7 @@
 
   <div id="quiz">
 
+    <div class="qnum" id="qnum"></div>
     <h2 id="question"></h2>
 
     <div id="answers"></div>
@@ -141,11 +148,32 @@
         { text: "Tiesiog žiūrėdamas ir „gaudydamasis“", type: "immersion" },
         { text: "Kartočiau tas pačias frazes", type: "repetition" }
       ]
+    },
+    {
+      q: "Kas tave labiausiai motyvuoja mokantis kalbų?",
+      a: [
+        { text: "Aiškaus proceso matymas", type: "structure" },
+        { text: "Galimybė susikalbėti su kitais žmonėmis", type: "communication" },
+        { text: "Įdomios veiklos (filmai, muzika)", type: "immersion" },
+        { text: "Mokymasis kaip žaidimas", type: "repetition" }
+      ]
+    },
+    {
+      q: "Kaip dažniausiai mokytumeisi kalbos po mokyklos?",
+      a: [
+        { text: "Su aiškiu planu (gramatika, užduotys)", type: "structure" },
+        { text: "Kalbėdamas su žmonėmis", type: "communication" },
+        { text: "Žiūrėdamas filmus", type: "immersion" },
+        { text: "Naudodamas programėles ir flashcards", type: "repetition" }
+      ]
     }
   ];
 
   function loadQuestion() {
     let q = questions[currentQuestion];
+
+    document.getElementById("qnum").innerText =
+      "Klausimas " + (currentQuestion + 1) + " iš " + questions.length;
 
     document.getElementById("question").innerText = q.q;
 
