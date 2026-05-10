@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="lt">
 <head>
   <meta charset="UTF-8" />
@@ -11,7 +10,6 @@
       margin: 0;
       font-family: Arial, sans-serif;
       background: linear-gradient(135deg, #eaf3ff, #d6e8ff, #cfe2ff);
-      color: #1b1b1b;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -29,16 +27,33 @@
       text-align: center;
     }
 
-    h2 {
-      font-size: 20px;
+    /* PROGRESS BAR */
+    .progress-container {
+      width: 100%;
+      height: 10px;
+      background: #d6e8ff;
+      border-radius: 20px;
       margin-bottom: 20px;
-      color: #1f3b63;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(135deg, #4a90e2, #6aa9ff);
+      transition: width 0.3s ease;
     }
 
     .qnum {
       font-size: 14px;
       color: #6b86a8;
       margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #1f3b63;
     }
 
     button {
@@ -56,7 +71,6 @@
 
     button:hover {
       transform: scale(1.02);
-      opacity: 0.95;
     }
 
     .result {
@@ -71,6 +85,10 @@
 <body>
 
 <div class="card">
+
+  <div class="progress-container">
+    <div class="progress-bar" id="progress"></div>
+  </div>
 
   <div id="quiz">
 
@@ -124,12 +142,12 @@
       ]
     },
     {
-      q: "Kaip dažniausiai rinktumeisi mokytis laisvalaikiu?",
+      q: "Kaip dažniausiai mokaisi laisvalaikiu?",
       a: [
-        { text: "Spręsti užduotis / mokytis pagal taisykles", type: "structure" },
-        { text: "Kalbėtis su kitais žmonėmis", type: "communication" },
-        { text: "Žiūrėti filmus, klausyti tinklalaidžių", type: "immersion" },
-        { text: "Naudoti programėles (pvz. Duolingo)", type: "repetition" }
+        { text: "Spręsti užduotis", type: "structure" },
+        { text: "Kalbėtis su žmonėmis", type: "communication" },
+        { text: "Žiūrėti filmus", type: "immersion" },
+        { text: "Programėlės / flashcards", type: "repetition" }
       ]
     },
     {
@@ -142,78 +160,101 @@
       ]
     },
     {
-      q: "Kaip mokytumeisi žiūrėdamas filmus?",
+      q: "Kaip mokytumeisi filmų?",
       a: [
-        { text: "Analizuodamas subtitrus", type: "structure" },
-        { text: "Bandydamas kartoti paskui žmones", type: "communication" },
-        { text: "Tiesiog žiūrėdamas ir „gaudydamasis“", type: "immersion" },
-        { text: "Kartočiau tas pačias frazes", type: "repetition" }
+        { text: "Analizuoju subtitrus", type: "structure" },
+        { text: "Kartojimas su žmonėmis", type: "communication" },
+        { text: "Žiūriu ir gaudau kontekstą", type: "immersion" },
+        { text: "Kartoju frazes", type: "repetition" }
       ]
     },
     {
-      q: "Kas tave labiausiai motyvuoja mokantis kalbų?",
+      q: "Kas tave motyvuoja?",
       a: [
-        { text: "Aiškaus proceso matymas", type: "structure" },
-        { text: "Galimybė susikalbėti su kitais žmonėmis", type: "communication" },
-        { text: "Įdomios veiklos (filmai, muzika)", type: "immersion" },
-        { text: "Mokymasis kaip žaidimas", type: "repetition" }
+        { text: "Procesas", type: "structure" },
+        { text: "Žmonės", type: "communication" },
+        { text: "Turinys", type: "immersion" },
+        { text: "Žaidimas", type: "repetition" }
       ]
     },
     {
-      q: "Kaip dažniausiai mokytumeisi kalbos po mokyklos?",
+      q: "Kaip mokaisi po mokyklos?",
       a: [
-        { text: "Su aiškiu planu (gramatika, užduotys)", type: "structure" },
-        { text: "Kalbėdamas su žmonėmis", type: "communication" },
-        { text: "Žiūrėdamas filmus", type: "immersion" },
-        { text: "Naudodamas programėles ir flashcards", type: "repetition" }
+        { text: "Planas + gramatika", type: "structure" },
+        { text: "Kalbėjimas", type: "communication" },
+        { text: "Filmai", type: "immersion" },
+        { text: "Flashcards", type: "repetition" }
       ]
     },
     {
-      q: "Kaip tau sekasi mokytis žodžius kita kalba?",
+      q: "Žodžių mokymasis?",
       a: [
-        { text: "Geriausiai įsimenu kai daug kartoju", type: "structure" },
-        { text: "Naudoju flashcards ir programėles", type: "repetition" },
-        { text: "Įsimenu kai naudoju realiose situacijose", type: "communication" },
-        { text: "Man sunku mokytis žodžius atskirai", type: "immersion" }
+        { text: "Kartojimas", type: "structure" },
+        { text: "Realaus gyvenimo situacijos", type: "communication" },
+        { text: "Kontekstas", type: "immersion" },
+        { text: "Programėlės", type: "repetition" }
       ]
     },
     {
-      q: "Koks gyvūnas tave geriausiai atspindi mokantis?",
+      q: "Gyvūnas?",
       a: [
-        { text: "Pelėda (logika)", type: "structure" },
-        { text: "Vilkas (bendrystė)", type: "communication" },
-        { text: "Delfinas (pojūtis)", type: "immersion" },
-        { text: "Voverė (kartojimas)", type: "repetition" }
+        { text: "Pelėda", type: "structure" },
+        { text: "Vilkas", type: "communication" },
+        { text: "Delfinas", type: "immersion" },
+        { text: "Voverė", type: "repetition" }
       ]
     },
     {
-      q: "Kaip elgiesi kai kažko nesupranti?",
+      q: "Kai nesupranti?",
       a: [
-        { text: "Ieškau paaiškinimo ir analizuoju", type: "structure" },
-        { text: "Bandau suprasti iš konteksto", type: "immersion" },
-        { text: "Klausau kitų arba pats kalbu", type: "communication" },
-        { text: "Kalu kol įsimenu", type: "repetition" }
+        { text: "Analizuoju", type: "structure" },
+        { text: "Kalbu su kitais", type: "communication" },
+        { text: "Kontekstas", type: "immersion" },
+        { text: "Kalu", type: "repetition" }
       ]
     },
     {
-      q: "Ar mėgsti rašyti?",
-      a: [
-        { text: "Taip, labai", type: "structure" },
-        { text: "Visai mėgstu", type: "repetition" },
-        { text: "Nelabai mėgstu", type: "immersion" },
-        { text: "Ne, visiškai", type: "communication" }
-      ]
-    },
-    {
-      q: "Ar turi kantrybės ilgai mokytis?",
+      q: "Rašymas?",
       a: [
         { text: "Taip", type: "structure" },
-        { text: "Taip", type: "repetition" },
+        { text: "Ne", type: "communication" },
+        { text: "Nelabai", type: "immersion" },
+        { text: "Kartais", type: "repetition" }
+      ]
+    },
+    {
+      q: "Kantrybė?",
+      a: [
+        { text: "Taip", type: "structure" },
         { text: "Vidutiniškai", type: "communication" },
-        { text: "Ne", type: "immersion" }
+        { text: "Ne", type: "immersion" },
+        { text: "Taip", type: "repetition" }
+      ]
+    },
+    {
+      q: "Kaip jautiesi su nauja kalba?",
+      a: [
+        { text: "Tikslumas", type: "structure" },
+        { text: "Greitis kalbėti", type: "communication" },
+        { text: "Kontekstas", type: "immersion" },
+        { text: "Pagrindai", type: "repetition" }
+      ]
+    },
+    {
+      q: "Mokymosi režimas?",
+      a: [
+        { text: "Analizė", type: "structure" },
+        { text: "Kalbėjimas", type: "communication" },
+        { text: "Tyrinėjimas", type: "immersion" },
+        { text: "Kartojimas", type: "repetition" }
       ]
     }
   ];
+
+  function updateProgress() {
+    let percent = (currentQuestion / questions.length) * 100;
+    document.getElementById("progress").style.width = percent + "%";
+  }
 
   function loadQuestion() {
     let q = questions[currentQuestion];
@@ -224,12 +265,13 @@
     document.getElementById("question").innerText = q.q;
 
     let html = "";
-
     q.a.forEach(ans => {
       html += `<button onclick="answer('${ans.type}')">${ans.text}</button>`;
     });
 
     document.getElementById("answers").innerHTML = html;
+
+    updateProgress();
   }
 
   function answer(type) {
@@ -244,12 +286,13 @@
   }
 
   function showResult() {
+    updateProgress();
+
     let maxType = Object.keys(score).reduce((a, b) =>
       score[a] > score[b] ? a : b
     );
 
     let text = "";
-
     if (maxType === "structure") text = "Tavo tipas: STRUKTŪRINIS";
     if (maxType === "communication") text = "Tavo tipas: KOMUNIKACINIS";
     if (maxType === "immersion") text = "Tavo tipas: IMERSIJOS";
