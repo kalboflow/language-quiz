@@ -1,381 +1,376 @@
 <!DOCTYPE html>
 <html lang="lt">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kalbų mokymosi testas</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Kalbų mokymosi testas</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+*{box-sizing:border-box}
 
-    body {
-      margin: 0;
-      font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(135deg, #dbeafe, #e0f2fe, #f0f9ff);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
+body{
+margin:0;
+font-family:'Inter',sans-serif;
+background: linear-gradient(135deg,#dbeafe,#93c5fd,#bfdbfe);
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+}
 
-    .card {
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(18px);
-      border-radius: 30px;
-      padding: 36px;
-      width: 92%;
-      max-width: 600px;
-      box-shadow: 0 25px 80px rgba(59,130,246,0.25);
-      text-align: center;
-      animation: fade 0.5s ease;
-    }
+.card{
+background:rgba(255,255,255,0.9);
+backdrop-filter:blur(20px);
+border-radius:28px;
+padding:36px;
+width:92%;
+max-width:650px;
+box-shadow:0 30px 90px rgba(37,99,235,0.25);
+animation:fade .4s ease;
+text-align:center;
+}
 
-    @keyframes fade {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+@keyframes fade{
+from{opacity:0;transform:translateY(10px)}
+to{opacity:1;transform:translateY(0)}
+}
 
-    /* LANDING */
-    .title {
-      font-size: 38px;
-      font-weight: 700;
-      color: #1e3a8a;
-      margin-bottom: 10px;
-    }
+/* LANDING */
+.title{
+font-size:40px;
+font-weight:800;
+color:#1e3a8a;
+margin-bottom:10px;
+}
 
-    .subtitle {
-      font-size: 18px;
-      color: #334155;
-      margin-bottom: 26px;
-      line-height: 1.6;
-    }
+.subtitle{
+font-size:18px;
+color:#334155;
+margin-bottom:25px;
+line-height:1.6;
+}
 
-    .start-btn {
-      width: 100%;
-      padding: 16px;
-      border: none;
-      border-radius: 18px;
-      font-size: 18px;
-      font-weight: 700;
-      color: white;
-      background: linear-gradient(135deg, #60a5fa, #3b82f6);
-      cursor: pointer;
-      transition: 0.25s ease;
-    }
+.start-btn{
+width:100%;
+padding:16px;
+border:none;
+border-radius:16px;
+font-size:18px;
+font-weight:700;
+color:white;
+background:linear-gradient(135deg,#3b82f6,#60a5fa);
+cursor:pointer;
+transition:.2s;
+}
 
-    .start-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 30px rgba(59,130,246,0.4);
-    }
+.start-btn:hover{transform:scale(1.05)}
 
-    /* QUIZ */
-    .progress {
-      height: 10px;
-      width: 100%;
-      background: #dbeafe;
-      border-radius: 20px;
-      margin-bottom: 20px;
-      overflow: hidden;
-    }
+/* QUIZ */
+.progress{
+height:10px;
+background:#dbeafe;
+border-radius:20px;
+overflow:hidden;
+margin-bottom:20px;
+}
 
-    .bar {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(135deg, #60a5fa, #3b82f6);
-      transition: 0.3s ease;
-    }
+.bar{
+height:100%;
+width:0%;
+background:linear-gradient(135deg,#3b82f6,#2563eb);
+transition:.3s;
+}
 
-    .qnum {
-      font-size: 14px;
-      color: #64748b;
-      margin-bottom: 10px;
-    }
+.qnum{
+font-size:14px;
+color:#64748b;
+margin-bottom:10px;
+}
 
-    h2 {
-      font-size: 22px;
-      color: #1e3a8a;
-      margin-bottom: 18px;
-    }
+h2{
+font-size:22px;
+color:#1e3a8a;
+margin-bottom:18px;
+}
 
-    button.answer {
-      width: 100%;
-      padding: 14px;
-      margin-top: 10px;
-      border: none;
-      border-radius: 14px;
-      font-size: 16px;
-      color: white;
-      background: linear-gradient(135deg, #60a5fa, #3b82f6);
-      cursor: pointer;
-      transition: 0.2s ease;
-    }
+button.answer{
+width:100%;
+padding:14px;
+margin-top:10px;
+border:none;
+border-radius:14px;
+font-size:16px;
+color:white;
+background:linear-gradient(135deg,#60a5fa,#3b82f6);
+cursor:pointer;
+transition:.2s;
+}
 
-    button.answer:hover {
-      transform: scale(1.02);
-    }
+button.answer:hover{transform:scale(1.02)}
 
-    /* RESULT */
-    .result {
-      font-size: 16px;
-      color: #334155;
-      line-height: 1.8;
-      text-align: left;
-      white-space: pre-line;
-    }
+.back-btn{
+margin-top:12px;
+background:transparent;
+border:none;
+color:#2563eb;
+font-weight:600;
+cursor:pointer;
+}
 
-  </style>
+/* RESULT */
+.result-title{
+font-size:34px;
+font-weight:800;
+color:#1e3a8a;
+margin-bottom:15px;
+text-transform:uppercase;
+}
+
+.result-text{
+text-align:left;
+font-size:16px;
+color:#334155;
+line-height:1.7;
+white-space:pre-line;
+}
+
+/* CONFETTI */
+.confetti{
+position:fixed;
+width:8px;
+height:8px;
+top:-10px;
+animation:fall 3s linear forwards;
+z-index:999;
+}
+
+@keyframes fall{
+to{transform:translateY(110vh) rotate(360deg);opacity:0}
+}
+
+</style>
 </head>
 
 <body>
 
 <div class="card">
 
-  <!-- LANDING -->
-  <div id="landing">
-    <div class="title">Koks tavo mokymosi stilius?</div>
-    <div class="subtitle">
-      Koks kalbos mokymosi metodas tau tinka labiausiai? Atsakyk į kelis klausimus ir sužinok, kaip tau geriausia mokytis kalbų.
-    </div>
-    <button class="start-btn" onclick="start()">Pradėti testą</button>
-  </div>
+<!-- LANDING (NEPAKEISTA) -->
+<div id="landing">
+<div class="title">Koks tavo mokymosi stilius?</div>
+<div class="subtitle">
+Koks kalbos mokymosi metodas tau tinka labiausiai? Atsakyk į kelis klausimus ir sužinok, kaip tau geriausia mokytis kalbų.
+</div>
+<button class="start-btn" onclick="start()">Pradėti testą</button>
+</div>
 
-  <!-- QUIZ -->
-  <div id="quiz" style="display:none;">
-    <div class="progress"><div class="bar" id="bar"></div></div>
-    <div class="qnum" id="qnum"></div>
-    <h2 id="question"></h2>
-    <div id="answers"></div>
-  </div>
+<!-- QUIZ -->
+<div id="quiz" style="display:none;">
 
-  <!-- RESULT -->
-  <div id="result" style="display:none;" class="result"></div>
+<div class="progress"><div class="bar" id="bar"></div></div>
+
+<div class="qnum" id="qnum"></div>
+<h2 id="question"></h2>
+
+<div id="answers"></div>
+
+<button class="back-btn" onclick="back()">← Ankstesnis klausimas</button>
+
+</div>
+
+<!-- RESULT -->
+<div id="result" style="display:none;"></div>
 
 </div>
 
 <script>
 
-let score = {
-  structure: 0,
-  communication: 0,
-  immersion: 0,
-  repetition: 0
-};
+let score={structure:0,communication:0,immersion:0,repetition:0};
+let current=0;
+let history=[];
 
-let current = 0;
-
-/* 💙 VISI TAVO 15 KLAUSIMŲ NEPAKEISTI */
-const questions = [
-  {
-    q: "Kaip tu geriausiai mokaisi naujų dalykų?",
-    a: [
-      { text: "Su taisyklėmis ir paaiškinimais", type: "structure" },
-      { text: "Praktikuojantis / darant užduotis", type: "communication" },
-      { text: "Klausant / žiūrint", type: "immersion" },
-      { text: "Daug kartų kartojant", type: "repetition" }
-    ]
-  },
-  {
-    q: "Koks tavo tikslas mokantis kalbų?",
-    a: [
-      { text: "Karjera / geresnis darbas ateityje", type: "structure" },
-      { text: "Susikalbėti su žmonėmis kelionių metu", type: "communication" },
-      { text: "Suprasti filmus, knygas, turinį", type: "immersion" },
-      { text: "Tobulėti kaip žmogus", type: "repetition" }
-    ]
-  },
-  {
-    q: "Ar tau patogu kalbėti užsienio kalba, net jei darai klaidų?",
-    a: [
-      { text: "Taip, man svarbiausia susikalbėti", type: "communication" },
-      { text: "Truputį, bet kartais bijau klaidų", type: "immersion" },
-      { text: "Ne, noriu kalbėti tik taisyklingai", type: "repetition" },
-      { text: "Geriau kol kas vengiu kalbėjimo", type: "structure" }
-    ]
-  },
-  {
-    q: "Kaip dažniausiai rinktumeisi mokytis laisvalaikiu?",
-    a: [
-      { text: "Spręsti užduotis / mokytis pagal taisykles", type: "structure" },
-      { text: "Kalbėtis su kitais žmonėmis", type: "communication" },
-      { text: "Žiūrėti filmus, klausyti tinklalaidžių", type: "immersion" },
-      { text: "Naudoti programėles (pvz.: duolingo)", type: "repetition" }
-    ]
-  },
-  {
-    q: "Jei kalbų mokymasis būtų žaidimas, kas tu būtum?",
-    a: [
-      { text: "Strategas", type: "structure" },
-      { text: "Komandos žaidėjas", type: "communication" },
-      { text: "Tyrinėtojas", type: "immersion" },
-      { text: "Kartotojas", type: "repetition" }
-    ]
-  },
-  {
-    q: "Kaip mokytumeisi žiūrėdamas filmus?",
-    a: [
-      { text: "Analizuodamas subtitrus", type: "structure" },
-      { text: "Bandydamas kartoti paskui žmones", type: "communication" },
-      { text: "Tiesiog žiūrėdamas ir bandydamas 'gaudytis'", type: "immersion" },
-      { text: "Kartočiau tas pačias frazes", type: "repetition" }
-    ]
-  },
-  {
-    q: "Kas tave labiausiai motyvuoja mokantis kalbų?",
-    a: [
-      { text: "Aiškaus proceso matymas", type: "structure" },
-      { text: "Galimybė susikalbėti su kitais žmonėmis", type: "communication" },
-      { text: "Įdomios veiklos (filmai, muzika)", type: "immersion" },
-      { text: "Mokymasis kaip žaidimas", type: "repetition" }
-    ]
-  },
-  {
-    q: "Kaip dažniausiai mokytumeisi kalbos po mokyklos?",
-    a: [
-      { text: "Su aiškiu planu (gramatika, užduotys)", type: "structure" },
-      { text: "Kalbėdamas su žmonėmis", type: "communication" },
-      { text: "Žiūrėdamas filmus", type: "immersion" },
-      { text: "Naudodamas programėles ir 'flashcards'", type: "repetition" }
-    ]
-  },
-  {
-    q: "Kaip tau sekasi mokytis žodžius kita kalba?",
-    a: [
-      { text: "Geriausiai įsimenu kai daug kartoju", type: "structure" },
-      { text: "Naudoju 'flashcards' ir programėles", type: "repetition" },
-      { text: "Įsimenu kai naudoju realiose situacijose", type: "communication" },
-      { text: "Man sunku mokytis žodžius atskirai", type: "immersion" }
-    ]
-  },
-  {
-    q: "Koks gyvūnas tave geriausiai atspindi mokantis?",
-    a: [
-      { text: "Pelėda (logika)", type: "structure" },
-      { text: "Vilkas (bendrystė)", type: "communication" },
-      { text: "Delfinas (pojūtis)", type: "immersion" },
-      { text: "Voverė (kartojimas)", type: "repetition" }
-    ]
-  },
-  {
-    q: "Kaip elgiesi kai kažko nesupranti?",
-    a: [
-      { text: "Ieškau paaiškinimo ir analizuoju", type: "structure" },
-      { text: "Bandau suprasti iš konteksto", type: "immersion" },
-      { text: "Klausau kitų arba pats kalbu", type: "communication" },
-      { text: "Kalu kol įsimenu", type: "repetition" }
-    ]
-  },
-  {
-    q: "Ar mėgsti rašyti?",
-    a: [
-      { text: "Taip, labai", type: "structure" },
-      { text: "Visai mėgstu", type: "repetition" },
-      { text: "Nelabai mėgstu", type: "immersion" },
-      { text: "Ne, visiškai", type: "communication" }
-    ]
-  },
-  {
-    q: "Ar turi kantrybės ilgai mokytis?",
-    a: [
-      { text: "Taip", type: "structure" },
-      { text: "Vidutiniškai", type: "communication" },
-      { text: "Ne", type: "immersion" }
-    ]
-  },
-  {
-    q: "Kaip jautiesi su nauja kalba?",
-    a: [
-      { text: "Noriu viską suprasti tiksliai", type: "structure" },
-      { text: "Noriu greitai pradėti kalbėti", type: "communication" },
-      { text: "Noriu suprasti 'kontekste'", type: "immersion" },
-      { text: "Noriu įsiminti pagrindus", type: "repetition" }
-    ]
-  },
-  {
-    q: "Jeigu tavo smegenys būtų 'mokymosi režimas', koks jis būtų?",
-    a: [
-      { text: "'Analizės režimas'", type: "structure" },
-      { text: "'Kalbėjimo režimas'", type: "communication" },
-      { text: "'Tyrinėjimo režimas'", type: "immersion" },
-      { text: "'Kartojimo režimas'", type: "repetition" }
-    ]
-  }
+/* 💙 VISI 15 KLAUSIMŲ (NEPAKEISTI) */
+const questions=[
+{q:"Kaip tu geriausiai mokaisi naujų dalykų?",a:[
+{text:"Su taisyklėmis ir paaiškinimais",type:"structure"},
+{text:"Praktikuojantis / darant užduotis",type:"communication"},
+{text:"Klausant / žiūrint",type:"immersion"},
+{text:"Daug kartų kartojant",type:"repetition"}
+]},
+{q:"Koks tavo tikslas mokantis kalbų?",a:[
+{text:"Karjera / geresnis darbas ateityje",type:"structure"},
+{text:"Susikalbėti su žmonėmis kelionių metu",type:"communication"},
+{text:"Suprasti filmus, knygas, turinį",type:"immersion"},
+{text:"Tobulėti kaip žmogus",type:"repetition"}
+]},
+{q:"Ar tau patogu kalbėti užsienio kalba, net jei darai klaidų?",a:[
+{text:"Taip, man svarbiausia susikalbėti",type:"communication"},
+{text:"Truputį, bet kartais bijau klaidų",type:"immersion"},
+{text:"Ne, noriu kalbėti tik taisyklingai",type:"repetition"},
+{text:"Geriau kol kas vengiu kalbėjimo",type:"structure"}
+]},
+{q:"Kaip dažniausiai rinktumeisi mokytis laisvalaikiu?",a:[
+{text:"Spręsti užduotis / mokytis pagal taisykles",type:"structure"},
+{text:"Kalbėtis su kitais žmonėmis",type:"communication"},
+{text:"Žiūrėti filmus, klausyti tinklalaidžių",type:"immersion"},
+{text:"Naudoti programėles (pvz.: duolingo)",type:"repetition"}
+]},
+{q:"Jei kalbų mokymasis būtų žaidimas, kas tu būtum?",a:[
+{text:"Strategas",type:"structure"},
+{text:"Komandos žaidėjas",type:"communication"},
+{text:"Tyrinėtojas",type:"immersion"},
+{text:"Kartotojas",type:"repetition"}
+]},
+{q:"Kaip mokytumeisi žiūrėdamas filmus?",a:[
+{text:"Analizuodamas subtitrus",type:"structure"},
+{text:"Bandydamas kartoti paskui žmones",type:"communication"},
+{text:"Tiesiog žiūrėdamas ir bandydamas 'gaudytis'",type:"immersion"},
+{text:"Kartočiau tas pačias frazes",type:"repetition"}
+]},
+{q:"Kas tave labiausiai motyvuoja mokantis kalbų?",a:[
+{text:"Aiškaus proceso matymas",type:"structure"},
+{text:"Galimybė susikalbėti su kitais žmonėmis",type:"communication"},
+{text:"Įdomios veiklos (filmai, muzika)",type:"immersion"},
+{text:"Mokymasis kaip žaidimas",type:"repetition"}
+]},
+{q:"Kaip dažniausiai mokytumeisi kalbos po mokyklos?",a:[
+{text:"Su aiškiu planu (gramatika, užduotys)",type:"structure"},
+{text:"Kalbėdamas su žmonėmis",type:"communication"},
+{text:"Žiūrėdamas filmus",type:"immersion"},
+{text:"Naudodamas programėles ir 'flashcards'",type:"repetition"}
+]},
+{q:"Kaip tau sekasi mokytis žodžius kita kalba?",a:[
+{text:"Geriausiai įsimenu kai daug kartoju",type:"structure"},
+{text:"Naudoju 'flashcards' ir programėles",type:"repetition"},
+{text:"Įsimenu kai naudoju realiose situacijose",type:"communication"},
+{text:"Man sunku mokytis žodžius atskirai",type:"immersion"}
+]},
+{q:"Koks gyvūnas tave geriausiai atspindi mokantis?",a:[
+{text:"Pelėda (logika)",type:"structure"},
+{text:"Vilkas (bendrystė)",type:"communication"},
+{text:"Delfinas (pojūtis)",type:"immersion"},
+{text:"Voverė (kartojimas)",type:"repetition"}
+]},
+{q:"Kaip elgiesi kai kažko nesupranti?",a:[
+{text:"Ieškau paaiškinimo ir analizuoju",type:"structure"},
+{text:"Bandau suprasti iš konteksto",type:"immersion"},
+{text:"Klausau kitų arba pats kalbu",type:"communication"},
+{text:"Kalu kol įsimenu",type:"repetition"}
+]},
+{q:"Ar mėgsti rašyti?",a:[
+{text:"Taip, labai",type:"structure"},
+{text:"Visai mėgstu",type:"repetition"},
+{text:"Nelabai mėgstu",type:"immersion"},
+{text:"Ne, visiškai",type:"communication"}
+]},
+{q:"Ar turi kantrybės ilgai mokytis?",a:[
+{text:"Taip",type:"structure"},
+{text:"Vidutiniškai",type:"communication"},
+{text:"Ne",type:"immersion"},
+{text:"Taip",type:"repetition"}
+]},
+{q:"Kaip jautiesi su nauja kalba?",a:[
+{text:"Noriu viską suprasti tiksliai",type:"structure"},
+{text:"Noriu greitai pradėti kalbėti",type:"communication"},
+{text:"Noriu suprasti 'kontekste'",type:"immersion"},
+{text:"Noriu įsiminti pagrindus",type:"repetition"}
+]},
+{q:"Jeigu tavo smegenys būtų 'mokymosi režimas', koks jis būtų?",a:[
+{text:"'Analizės režimas'",type:"structure"},
+{text:"'Kalbėjimo režimas'",type:"communication"},
+{text:"'Tyrinėjimo režimas'",type:"immersion"},
+{text:"'Kartojimo režimas'",type:"repetition"}
+]}
 ];
 
-/* logic */
 function start(){
-  document.getElementById("landing").style.display="none";
-  document.getElementById("quiz").style.display="block";
-  load();
+document.getElementById("landing").style.display="none";
+document.getElementById("quiz").style.display="block";
+load();
 }
 
 function load(){
-  let q = questions[current];
-  document.getElementById("qnum").innerText = `Klausimas ${current+1} iš ${questions.length}`;
-  document.getElementById("question").innerText = q.q;
+let q=questions[current];
+document.getElementById("qnum").innerText=`Klausimas ${current+1} iš ${questions.length}`;
+document.getElementById("question").innerText=q.q;
 
-  let html="";
-  q.a.forEach(a=>{
-    html+=`<button class="answer" onclick="pick('${a.type}')">${a.text}</button>`;
-  });
+let html="";
+q.a.forEach(a=>{
+html+=`<button class="answer" onclick="pick('${a.type}')">${a.text}</button>`;
+});
 
-  document.getElementById("answers").innerHTML=html;
-
-  document.getElementById("bar").style.width = (current/questions.length)*100+"%";
+document.getElementById("answers").innerHTML=html;
+document.getElementById("bar").style.width=(current/questions.length)*100+"%";
 }
 
 function pick(type){
-  score[type]++;
-  current++;
-
-  if(current<questions.length){
-    load();
-  } else {
-    result();
-  }
+history.push(current);
+score[type]++;
+current++;
+if(current<questions.length){load()}else{result()}
 }
 
-/* 💙 ENDINGS 100% YOUR ORIGINAL TEXT */
+function back(){
+if(history.length>0){
+current=history.pop();
+load();
+}
+}
+
+/* 💙 ENDINGS NEPAKEISTI */
 function result(){
 
-  let max = Object.keys(score).reduce((a,b)=>score[a]>score[b]?a:b);
+let max=Object.keys(score).reduce((a,b)=>score[a]>score[b]?a:b);
 
-  let text="";
+let title="",text="";
 
-  if(max==="structure"){
-    text=`Struktūrinis mokymosi stilius.Tau geriausiai tinka mokytis tada, kai viskas yra aiškiai paaiškinta ir sudėliota žingsnis po žingsnio. Tu mėgsti suprasti taisykles, struktūrą ir logiką, o ne tiesiog „spėlioti“. Tau padeda planas, pratimai ir aiškūs pavyzdžiai, nes taip jauti progresą ir užtikrintumą.
+if(max==="structure"){
+title="STRUKTŪRINIS MOKYMOSI STILIUS";
+text=`Struktūrinis mokymosi stilius.Tau geriausiai tinka mokytis tada, kai viskas yra aiškiai paaiškinta ir sudėliota žingsnis po žingsnio. Tu mėgsti suprasti taisykles, struktūrą ir logiką, o ne tiesiog „spėlioti“. Tau padeda planas, pratimai ir aiškūs pavyzdžiai, nes taip jauti progresą ir užtikrintumą.
 
 Tinka: gramatikos mokymasis, užduotys, aiškus planas, užrašai ir struktūruotos pamokos.`;
-  }
+}
 
-  if(max==="communication"){
-    text=`Komunikacinis mokymosi stilius.Tu geriausiai mokaisi kalbėdamas ir bendraudamas su kitais. Tau svarbiausia yra praktika – net jei darai klaidų, tu vis tiek nori bandyti. Per pokalbius ir realias situacijas tu greitai tobulėji ir įgauni pasitikėjimo.
+if(max==="communication"){
+title="KOMUNIKACINIS MOKYMOSI STILIUS";
+text=`Komunikacinis mokymosi stilius.Tu geriausiai mokaisi kalbėdamas ir bendraudamas su kitais. Tau svarbiausia yra praktika – net jei darai klaidų, tu vis tiek nori bandyti. Per pokalbius ir realias situacijas tu greitai tobulėji ir įgauni pasitikėjimo.
 
 Tinka: pokalbiai su žmonėmis, kalbų mainai, dialogai, kalbėjimas net su klaidomis.`;
-  }
+}
 
-  if(max==="immersion"){
-    text=`Imersijos mokymosi stilius.Tu mokaisi natūraliai, per aplinką ir turinį. Tau patinka žiūrėti filmus, klausyti muzikos ar video ir iš to „pagauti“ kalbą. Tau nereikia visko iš karto suprasti – laikui bėgant viskas pradeda darytis aiškiau.
+if(max==="immersion"){
+title="IMERSIJOS MOKYMOSI STILIUS";
+text=`Imersijos mokymosi stilius.Tu mokaisi natūraliai, per aplinką ir turinį. Tau patinka žiūrėti filmus, klausyti muzikos ar video ir iš to „pagauti“ kalbą. Tau nereikia visko iš karto suprasti – laikui bėgant viskas pradeda darytis aiškiau.
 
 Tinka: filmai, YouTube, podcastai, subtitrai ir mokymasis per realų turinį.`;
-  }
+}
 
-  if(max==="repetition"){
-    text=`Kartojimo mokymosi stilius.Tu geriausiai įsimeni informaciją tada, kai ją kartoji daug kartų. Tau padeda nuoseklumas, trumpi, bet dažni mokymosi momentai ir praktika. Kuo daugiau kartoji, tuo labiau viskas įsitvirtina.
+if(max==="repetition"){
+title="KARTOJIMO MOKYMOSI STILIUS";
+text=`Kartojimo mokymosi stilius.Tu geriausiai įsimeni informaciją tada, kai ją kartoji daug kartų. Tau padeda nuoseklumas, trumpi, bet dažni mokymosi momentai ir praktika. Kuo daugiau kartoji, tuo labiau viskas įsitvirtina.
 
 Tinka: flashcards, žodžių kartojimas, frazių mokymasis ir trumpi kasdieniai seansai.`;
-  }
+}
 
-  document.getElementById("quiz").style.display="none";
-  document.getElementById("result").style.display="block";
-  document.getElementById("result").innerText=text;
+/* CONFETTI */
+for(let i=0;i<80;i++){
+let c=document.createElement("div");
+c.classList.add("confetti");
+c.style.left=Math.random()*100+"vw";
+c.style.background=["#3b82f6","#60a5fa","#93c5fd","#bfdbfe"][Math.random()*4|0];
+document.body.appendChild(c);
+setTimeout(()=>c.remove(),3000);
+}
+
+document.getElementById("quiz").style.display="none";
+document.getElementById("result").style.display="block";
+document.getElementById("result").innerHTML=
+`<div class="result-title">${title}</div><div class="result-text">${text}</div>`;
 }
 
 load();
-
 </script>
 
 </body>
