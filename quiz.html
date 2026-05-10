@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kalbų mokymosi testas</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f0f14;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .card {
+      background: #1b1b25;
+      padding: 30px;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      margin-top: 10px;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background: #5b6cff;
+      color: white;
+      font-size: 16px;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .result {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card">
+  <div id="quiz">
+    <h2>Kaip tau lengviausia mokytis kalbų?</h2>
+
+    <button onclick="answer('structure')">Per taisykles ir struktūrą</button>
+    <button onclick="answer('communication')">Kalbant su žmonėmis</button>
+    <button onclick="answer('immersion')">Per filmus / muziką</button>
+    <button onclick="answer('repetition')">Per kartojimą</button>
+  </div>
+
+  <div id="result" class="result" style="display:none;"></div>
+</div>
+
+<script>
+  let score = {
+    structure: 0,
+    communication: 0,
+    immersion: 0,
+    repetition: 0
+  };
+
+  function answer(type) {
+    score[type]++;
+
+    // DEMO: iškart rodom result (vėliau praplėsim į 15 klausimų)
+    showResult();
+  }
+
+  function showResult() {
+    let maxType = Object.keys(score).reduce((a, b) =>
+      score[a] > score[b] ? a : b
+    );
+
+    let text = "";
+
+    if (maxType === "structure") text = "Tavo tipas: STRUKTŪRINIS";
+    if (maxType === "communication") text = "Tavo tipas: KOMUNIKACINIS";
+    if (maxType === "immersion") text = "Tavo tipas: IMERSIJOS";
+    if (maxType === "repetition") text = "Tavo tipas: KARTOJIMO";
+
+    document.getElementById("quiz").style.display = "none";
+    document.getElementById("result").style.display = "block";
+    document.getElementById("result").innerText = text;
+  }
+</script>
+
+</body>
+</html>
