@@ -176,7 +176,7 @@ Atsakyk į kelis klausimus ir sužinok, kaip tau geriausia mokytis kalbų.
 
 <div id="answers"></div>
 
-<button class="back-btn" onclick="back()">← Ankstesnis klausimas</button>
+<button class="back-btn" onclick="back()">← Atgal</button>
 
 </div>
 
@@ -226,7 +226,7 @@ const questions=[
 {q:"Kaip mokytumeisi žiūrėdamas filmus?",a:[
 {text:"Analizuodamas subtitrus",type:"structure"},
 {text:"Bandydamas kartoti paskui žmones",type:"communication"},
-{text:"Tiesiog žiūrėdamas ir bandydamas 'gaudytis'",type:"immersion"},
+{text:"Tiesiog žiūrėdamas ir bandydamas „gaudytis“",type:"immersion"},
 {text:"Kartočiau tas pačias frazes",type:"repetition"}
 ]},
 {q:"Kas tave labiausiai motyvuoja mokantis kalbų?",a:[
@@ -239,11 +239,11 @@ const questions=[
 {text:"Su aiškiu planu (gramatika, užduotys)",type:"structure"},
 {text:"Kalbėdamas su žmonėmis",type:"communication"},
 {text:"Žiūrėdamas filmus",type:"immersion"},
-{text:"Naudodamas programėles ir 'flashcards'",type:"repetition"}
+{text:"Naudodamas programėles ir „flashcards“",type:"repetition"}
 ]},
 {q:"Kaip tau sekasi mokytis žodžius kita kalba?",a:[
 {text:"Geriausiai įsimenu kai daug kartoju",type:"structure"},
-{text:"Naudoju 'flashcards' ir programėles",type:"repetition"},
+{text:"Naudoju „flashcards“ ir programėles",type:"repetition"},
 {text:"Įsimenu kai naudoju realiose situacijose",type:"communication"},
 {text:"Man sunku mokytis žodžius atskirai",type:"immersion"}
 ]},
@@ -257,7 +257,7 @@ const questions=[
 {text:"Ieškau paaiškinimo ir analizuoju",type:"structure"},
 {text:"Bandau suprasti iš konteksto",type:"immersion"},
 {text:"Klausau kitų arba pats kalbu",type:"communication"},
-{text:"Kalu kol įsimenu",type:"repetition"}
+{text:"„Kalu“ kol įsimenu",type:"repetition"}
 ]},
 {q:"Ar mėgsti rašyti?",a:[
 {text:"Taip, labai",type:"structure"},
@@ -276,11 +276,11 @@ const questions=[
 {text:"Noriu suprasti 'kontekste'",type:"immersion"},
 {text:"Noriu įsiminti pagrindus",type:"repetition"}
 ]},
-{q:"Jeigu tavo smegenys būtų 'mokymosi režimas', koks jis būtų?",a:[
-{text:"'Analizės režimas'",type:"structure"},
-{text:"'Kalbėjimo režimas'",type:"communication"},
-{text:"'Tyrinėjimo režimas'",type:"immersion"},
-{text:"'Kartojimo režimas'",type:"repetition"}
+{q:"Jeigu tavo smegenys būtų „mokymosi režimas“, koks jis būtų?",a:[
+{text:"„Analizės režimas“",type:"structure"},
+{text:"„Kalbėjimo režimas“",type:"communication"},
+{text:"„Tyrinėjimo režimas“",type:"immersion"},
+{text:"„Kartojimo režimas“",type:"repetition"}
 ]}
 ];
 
@@ -334,14 +334,14 @@ Tinka: gramatikos mokymasis, užduotys, aiškus planas, užrašai ir struktūruo
 
 if(max==="communication"){
 title="KOMUNIKACINIS MOKYMOSI STILIUS";
-text=`Komunikacinis mokymosi stilius.Tu geriausiai mokaisi kalbėdamas ir bendraudamas su kitais. Tau svarbiausia yra praktika – net jei darai klaidų, tu vis tiek nori bandyti. Per pokalbius ir realias situacijas tu greitai tobulėji ir įgauni pasitikėjimo.
+text=`Komunikacinis mokymosi stilius.Tu geriausiai mokaisi kalbėdamas ir bendraudamas su kitais. Tau svarbiausia yra praktika - net jei darai klaidų, tu vis tiek nori bandyti. Per pokalbius ir realias situacijas tu greitai tobulėji ir įgauni pasitikėjimo.
 
 Tinka: pokalbiai su žmonėmis, kalbų mainai, dialogai, kalbėjimas net su klaidomis.`;
 }
 
 if(max==="immersion"){
 title="IMERSIJOS MOKYMOSI STILIUS";
-text=`Imersijos mokymosi stilius.Tu mokaisi natūraliai, per aplinką ir turinį. Tau patinka žiūrėti filmus, klausyti muzikos ar video ir iš to „pagauti“ kalbą. Tau nereikia visko iš karto suprasti – laikui bėgant viskas pradeda darytis aiškiau.
+text=`Imersijos mokymosi stilius.Tu mokaisi natūraliai, per aplinką ir turinį. Tau patinka žiūrėti filmus, klausyti muzikos ar video ir iš to „pagauti“ kalbą. Tau nereikia visko iš karto suprasti - laikui bėgant viskas pradeda darytis aiškiau.
 
 Tinka: filmai, YouTube, podcastai, subtitrai ir mokymasis per realų turinį.`;
 }
